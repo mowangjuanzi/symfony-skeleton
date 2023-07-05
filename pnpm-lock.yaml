@@ -13,7 +13,7 @@ devDependencies:
     version: 7.22.6(@babel/core@7.22.6)
   '@symfony/webpack-encore':
     specifier: ^4.3.0
-    version: 4.3.0(@babel/core@7.22.6)(@babel/preset-env@7.22.6)(@vue/compiler-sfc@3.3.4)(postcss-loader@7.3.3)(postcss@8.4.24)(vue-loader@17.2.2)(vue@3.3.4)(webpack-cli@4.10.0)(webpack-notifier@1.15.0)(webpack@5.88.1)
+    version: 4.3.0(@babel/core@7.22.6)(@babel/preset-env@7.22.6)(@vue/compiler-sfc@3.3.4)(file-loader@6.2.0)(postcss-loader@7.3.3)(postcss@8.4.24)(vue-loader@17.2.2)(vue@3.3.4)(webpack-cli@4.10.0)(webpack-notifier@1.15.0)(webpack@5.88.1)
   '@vue/compiler-sfc':
     specifier: ^3.3.4
     version: 3.3.4
@@ -26,6 +26,9 @@ devDependencies:
   element-plus:
     specifier: ^2.3.7
     version: 2.3.7(vue@3.3.4)
+  file-loader:
+    specifier: ^6.0.0
+    version: 6.2.0(webpack@5.88.1)
   pinia:
     specifier: ^2.1.4
     version: 2.1.4(vue@3.3.4)
@@ -1420,7 +1423,7 @@ packages:
     resolution: {integrity: sha512-Ccy0NlLkzr0Ex2FKvh2X+OyERHXJ88XJ1MXtsI9y9fGexlaXaVTPzBCRBwIxFkORuOb+uBqeu+RqnpgYTEZRUQ==}
     dev: true
 
-  /@symfony/webpack-encore@4.3.0(@babel/core@7.22.6)(@babel/preset-env@7.22.6)(@vue/compiler-sfc@3.3.4)(postcss-loader@7.3.3)(postcss@8.4.24)(vue-loader@17.2.2)(vue@3.3.4)(webpack-cli@4.10.0)(webpack-notifier@1.15.0)(webpack@5.88.1):
+  /@symfony/webpack-encore@4.3.0(@babel/core@7.22.6)(@babel/preset-env@7.22.6)(@vue/compiler-sfc@3.3.4)(file-loader@6.2.0)(postcss-loader@7.3.3)(postcss@8.4.24)(vue-loader@17.2.2)(vue@3.3.4)(webpack-cli@4.10.0)(webpack-notifier@1.15.0)(webpack@5.88.1):
     resolution: {integrity: sha512-YhM6xh+aKmrWS7X7Y2CUDte4wiUm9WIo0w07KTwDLLQnOUdMHRf3wa680WXH/I3oHqD+grFa7BHPpR0sfmoGMQ==}
     engines: {node: '>=14.0.0'}
     hasBin: true
@@ -1523,6 +1526,7 @@ packages:
       css-loader: 6.8.1(webpack@5.88.1)
       css-minimizer-webpack-plugin: 4.2.2(webpack@5.88.1)
       fast-levenshtein: 3.0.0
+      file-loader: 6.2.0(webpack@5.88.1)
       mini-css-extract-plugin: 2.7.6(webpack@5.88.1)
       pkg-up: 3.1.0
       postcss: 8.4.24
@@ -3078,6 +3082,17 @@ packages:
     engines: {node: '>=0.8.0'}
     dependencies:
       websocket-driver: 0.7.4
+    dev: true
+
+  /file-loader@6.2.0(webpack@5.88.1):
+    resolution: {integrity: sha512-qo3glqyTa61Ytg4u73GultjHGjdRyig3tG6lPtyX/jOEJvHif9uB0/OCI2Kif6ctF3caQTW2G5gym21oAsI4pw==}
+    engines: {node: '>= 10.13.0'}
+    peerDependencies:
+      webpack: ^4.0.0 || ^5.0.0
+    dependencies:
+      loader-utils: 2.0.4
+      schema-utils: 3.3.0
+      webpack: 5.88.1(webpack-cli@4.10.0)
     dev: true
 
   /fill-range@7.0.1:
