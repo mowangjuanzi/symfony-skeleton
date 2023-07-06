@@ -79,4 +79,18 @@ Encore
     })
 ;
 
-module.exports = Encore.getWebpackConfig();
+let config = Encore.getWebpackConfig();
+
+const AutoImport = require('unplugin-auto-import/webpack')
+const Components = require('unplugin-vue-components/webpack')
+const { ElementPlusResolver } = require('unplugin-vue-components/resolvers')
+
+config.plugins.push(AutoImport({
+    resolvers: [ElementPlusResolver()],
+}));
+
+config.plugins.push(Components({
+    resolvers: [ElementPlusResolver()],
+}));
+
+module.exports = config;
