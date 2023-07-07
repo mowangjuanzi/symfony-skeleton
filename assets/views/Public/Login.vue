@@ -7,6 +7,22 @@ const formData = reactive({
   remember: false,
 });
 
+/**
+ * 验证规则
+ */
+const rules = reactive({
+  username: [
+    {
+      required: true, message: "该项为必填项", trigger: "blur",
+    }
+  ],
+  password: [
+    {
+      required: true, message: "该项为必填项", trigger: "blur",
+    }
+  ],
+});
+
 </script>
 
 <template>
@@ -20,8 +36,8 @@ const formData = reactive({
         <div class="flex justify-center items-center h-[calc(100%-60px)]">
           <TransitionGroup appear tag="div">
             <img src="../../images/login-box-bg.svg" key="1" alt="" class="w-[350px]" />
-            <div class="text-3xl text-white" key="2">欢迎使用本系统</div>
-            <div class="mt-5 font-normal text-white text-sm" key="3">
+            <div class="text-3xl text-center text-white" key="2">欢迎使用本系统</div>
+            <div class="mt-5 font-normal text-white text-center text-sm" key="3">
               开箱即用的中后台管理系统
             </div>
           </TransitionGroup>
@@ -36,7 +52,7 @@ const formData = reactive({
         </div>
         <Transition appear class="v-enter-active">
           <div class="h-full flex items-center m-auto w-full 2xl:max-w-[500px] xl:max-w-[500px] md:max-w-[500px] lg:max-w-[500px]">
-            <el-form hide-required-asterisk size="large" :model="formData" label-position="top" class="p-5 h-auto m-auto max-xl:rounded-3xl max-xl:bg-white">
+            <el-form :rules="rules" hide-required-asterisk size="large" :model="formData" label-position="top" class="p-5 h-auto m-auto max-xl:rounded-3xl max-xl:bg-white">
               <el-row :gutter="20">
                 <el-col :span="24">
                   <el-form-item>
@@ -44,12 +60,12 @@ const formData = reactive({
                   </el-form-item>
                 </el-col>
                 <el-col :span="24">
-                  <el-form-item label="用户名">
+                  <el-form-item label="用户名" prop="username">
                     <el-input name="username" v-model="formData.username" placeholder="请输入用户名" clearable />
                   </el-form-item>
                 </el-col>
                 <el-col :span="24">
-                  <el-form-item label="密码">
+                  <el-form-item label="密码" prop="password">
                     <el-input :input-style="{width: '100%'}" type="password" show-password v-model="formData.password" placeholder="请输入密码" clearable />
                   </el-form-item>
                 </el-col>
